@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Agendas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="accordion-list">
+    <ion-list-header *ngFor="let agenda of listAgendas; let i = index" no-lines no-padding>
+      <!-- Toggle Button -->
+      <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active': agenda.open, 'section': !agenda.open}">
+       <!-- <img [src]="'https://image.tmdb.org/t/p/w500/' + filme.backdrop_path">-->
+       <img [src]="agenda.imagePath">
+        <ion-icon item-right name="arrow-forward" *ngIf="!agenda.open"></ion-icon>
+        <ion-icon item-right name="arrow-down" *ngIf="agenda.open"></ion-icon>
+        {{ agenda.nome }}
+      </button>
+
+      <ion-list *ngIf="agenda.eventos && agenda.open" no-lines>
+        
+        <!-- Third Level -->
+        <ion-item *ngFor="let evento of agenda.eventos; let k = index" detail-none class="child-item" text-wrap>
+            <h2>{{ evento.membro }}</h2>
+            <p text-lowercase>{{ evento.tipo }}</p>
+            <!-- Direct Add Button -->
+            <!--<button ion-button outline item-end (click)="buyItem(item)">{{ item.price }}</button>-->
+          </ion-item>
+        
+
+      </ion-list>
+    </ion-list-header>
+  </ion-list>
+</ion-content>

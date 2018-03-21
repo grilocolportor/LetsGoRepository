@@ -1,0 +1,8 @@
+{
+  "name": "LetsGo",
+  "app_id": "6d417479",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
