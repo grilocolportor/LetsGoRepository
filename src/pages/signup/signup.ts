@@ -4,6 +4,7 @@ import { TabsPage } from '../tabs/tabs';
 import { LoginPage } from '../login/login';
 import { ApiLetsGoProvider } from '../../providers/api-lets-go/api-lets-go';
 import { HomePage } from '../home/home';
+import { WelcomePage } from '../welcome/welcome';
 
 /**
  * Generated class for the SignupPage page.
@@ -37,12 +38,13 @@ export class SignupPage {
       localStorage.setItem('membro', JSON.stringify(this.responseData));
       this.navCtrl.push(TabsPage);
     })
-
   }
 
-  login() {
-    //Login page link
-    this.navCtrl.push(LoginPage);
+  //volta para a pagina home
+  goToOtherPage() {
+    //push another page onto the history stack
+    //causing the nav controller to animate the new page in
+    this.navCtrl.push(WelcomePage);
   }
 
 }

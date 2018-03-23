@@ -21,6 +21,9 @@ import { LoginPage } from '../pages/login/login';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 
+import { BrMaskerModule } from 'brmasker-ionic-3';
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -36,7 +39,8 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
     BrowserModule,  
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    BrMaskerModule
     
   ],
   bootstrap: [IonicApp],
