@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { SignupPage } from '../pages/signup/signup';
+import { AgendaPage } from '../pages/agenda/agenda';
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,7 @@ export class MyApp {
 
      //menu lateral
      this.pages = [
-      { title: 'Atualizar Página', component: SignupPage }
+      { title: 'Atualizar Página', component: AgendaPage }
      ]
   
   }

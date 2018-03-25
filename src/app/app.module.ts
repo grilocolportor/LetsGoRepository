@@ -22,6 +22,7 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
 
 import { BrMaskerModule } from 'brmasker-ionic-3';
+import { AgendaPage } from '../pages/agenda/agenda';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     TabsPage,
     WelcomePage,
     SignupPage,
-    LoginPage
+    LoginPage,
+    AgendaPage
   ],
   imports: [
     BrowserModule,  
@@ -52,7 +54,8 @@ import { BrMaskerModule } from 'brmasker-ionic-3';
     TabsPage,
     WelcomePage,
     SignupPage,
-    LoginPage
+    LoginPage,
+    AgendaPage
   ],
   providers: [
     StatusBar,

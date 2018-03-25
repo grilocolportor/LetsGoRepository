@@ -33,7 +33,7 @@ export class ApiLetsGoProvider {
    
     let options = new RequestOptions({ headers: this.headers });
 
-    return this.http.post(this.baseApiPath + "/agendaPorMembros", postParams).map(res => res.json().agendas);
+    return this.http.post(this.baseApiPath + "/addagenda", postParams).map(res => res.json().agendas);
 
     /*return this.http.post(this.baseApiPath + "/getagendatodos", options,{
       responseType:"json"
@@ -43,6 +43,12 @@ export class ApiLetsGoProvider {
 
     // return 
 
+  }
+
+  postRequestNewAgenda(postParams){
+    let options = new RequestOptions({ headers: this.headers });
+
+    return this.http.post(this.baseApiPath + "/agendaPorMembros", postParams).map(res => res.json().agendas);
   }
 
   postRequestCrendencials(credentials, type) {
