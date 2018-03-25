@@ -18,7 +18,7 @@ export class ApiLetsGoProvider {
 
    headers = new Headers();
   //  baseApiPath = "http://localhost:8080/LetsGo/rest/ws";
-    baseApiPath = "http://192.168.10.102:8080/LetsGo/rest/ws";
+    baseApiPath = "http://192.168.10.103:8080/LetsGo/rest/ws";
   //baseApiPath = "http://192.168.42.214:8080/LetsGo/rest/ws";
 
   constructor(public http: Http, private localPersistence: LocalPersistenceProvider) {
@@ -29,17 +29,11 @@ export class ApiLetsGoProvider {
 
   }
 
-  postRequest() {
+  postRequest(postParams) {
    
     let options = new RequestOptions({ headers: this.headers });
 
-    let postParams = {
-      title: 'foo',
-      body: 'bar',
-      userId: 1
-    }
-
-    return this.http.post(this.baseApiPath + "/getagendatodos", postParams).map(res => res.json().agendas);
+    return this.http.post(this.baseApiPath + "/agendaPorMembros", postParams).map(res => res.json().agendas);
 
     /*return this.http.post(this.baseApiPath + "/getagendatodos", options,{
       responseType:"json"

@@ -13,12 +13,21 @@ export class ContactPage {
 
   listAgendas : any[];
 
+   agendaMembro = {
+    membro: "",
+    agenda: "",
+    userId: ""
+  }
+
   constructor(public navCtrl: NavController,
               private agendaProvider: ApiLetsGoProvider,
               private localPersistence: LocalPersistenceProvider, 
               private http: HttpModule) {
+
+               
+                this.agendaMembro = JSON.parse(localStorage.getItem("membro"));
       
-    let localData = this.agendaProvider.postRequest().subscribe(data=>{
+    let localData = this.agendaProvider.postRequest(this.agendaMembro).subscribe(data=>{
       console.log(data);
       this.listAgendas = data;
     });
