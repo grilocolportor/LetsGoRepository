@@ -16,7 +16,7 @@ export class ContactPage {
    agendaMembro = {
     membro: "",
     agenda: "",
-    userId: ""
+    id: ""
   }
 
   constructor(public navCtrl: NavController,
@@ -24,10 +24,10 @@ export class ContactPage {
               private localPersistence: LocalPersistenceProvider, 
               private http: HttpModule) {
 
-               
+               console.log(localStorage.getItem("membro"));
                 this.agendaMembro = JSON.parse(localStorage.getItem("membro"));
       
-    let localData = this.agendaProvider.postRequest(this.agendaMembro).subscribe(data=>{
+    let localData = this.agendaProvider.postRequestGetAgenda(this.agendaMembro).subscribe(data=>{
       console.log(data);
       this.listAgendas = data;
     });
