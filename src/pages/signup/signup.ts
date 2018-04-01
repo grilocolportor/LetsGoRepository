@@ -32,7 +32,7 @@ export class SignupPage {
 
   signup() {
   
-    let localData = this.authService.postRequestCrendencials(this.membro, 'signup').subscribe((result) => {
+    let localData = this.authService.postRequestCrendencials(this.membro).subscribe((result) => {
       console.log(result);
       this.responseData = result;
       localStorage.setItem('membro', JSON.stringify(this.responseData));

@@ -29,7 +29,7 @@ export class LoginPage {
   }
 
   login(){
-    this.authService.postRequestCrendencials(this.userData,'login').subscribe((result) => {
+    this.authService.postRequestCrendencials(this.userData).subscribe((result) => {
       this.responseData = result;
       if(this.responseData.userData){
       console.log(this.responseData);

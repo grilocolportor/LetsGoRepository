@@ -12,18 +12,23 @@ export class HomePage {
   userDetails: any;
   responseData: any;
 
+  lstMembro : Array<any>;
+
   userPostData = { "nome": "", "numeroCelular": "" };
 
 
   constructor(public navCtrl: NavController, public authService: AuthServiceProvider) {
 
-    const data = JSON.parse(localStorage.getItem('membro'));
+    this.lstMembro = JSON.parse(localStorage.getItem('membro'));
 
-    console.log(data);
-   this.userDetails = data;
+   console.log( this.lstMembro);
+   this.lstMembro.forEach(m=>{
+    this.userDetails = m;
+    this.userPostData.nome = m.nome;
+    this.userPostData.numeroCelular = m.numeroCelular;
+   });
 
-    this.userPostData.nome = this.userDetails.nome;
-    this.userPostData.numeroCelular = this.userDetails.numeroCelular;
+    
 
   }
 

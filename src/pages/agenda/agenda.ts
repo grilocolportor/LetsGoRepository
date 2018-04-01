@@ -42,7 +42,7 @@ export class AgendaPage {
   }
 
   newAgenda(){
-    let localData = this.agendaProvider.postRequest(this.agenda).subscribe(data=>{
+    let localData = this.agendaProvider.postRequestAddAgenda(this.agenda).subscribe(data=>{
       console.log(data);
       this.listAgendas = data;
     });
