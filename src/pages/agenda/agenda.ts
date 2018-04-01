@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ApiLetsGoProvider } from '../../providers/api-lets-go/api-lets-go';
+import { LocalPersistenceProvider } from '../../providers/local-persistence/local-persistence';
 
 /**
  * Generated class for the AgendaPage page.
@@ -18,10 +19,9 @@ export class AgendaPage {
 
   listAgendas: any = [];
 
-  user = JSON.parse(localStorage.getItem("membro"));
 
   agendaMembro = {
-    membro: this.user.id,
+    membro: this.localPersistence.getLocalMembro().id,
     tipo: "ADMINISTRADOR"
   }
 
@@ -30,11 +30,13 @@ export class AgendaPage {
     nome:"",
     sobre: "",
     imagePath: "",
-    agendaMembro: [this.agendaMembro],
+    agendaMembro: [this.agendaMembro]
    
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  private agendaProvider: ApiLetsGoProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,  private agendaProvider: ApiLetsGoProvider,
+     private localPersistence: LocalPersistenceProvider) {
+
   }
 
   ionViewDidLoad() {

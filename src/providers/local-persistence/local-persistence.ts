@@ -10,6 +10,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LocalPersistenceProvider {
 
+  userPostData = { "nome": "", "numeroCelular": "", "id":"", "email": "" };
+
   constructor(public http: HttpClient) {
     console.log('Hello LocalPersistenceProvider Provider');
   }
@@ -21,6 +23,18 @@ export class LocalPersistenceProvider {
   getLocalAgenda(){
     console.log(localStorage.getItem("agendas").toString);
     return localStorage.getItem("agendas");
+  }
+
+  getLocalMembro(){
+
+    var membro: any  = JSON.parse(localStorage.getItem('membro'));
+    membro.forEach(e => {
+      this.userPostData.nome = e.nome,
+      this.userPostData.numeroCelular = e.numeroCelular,
+      this.userPostData.id = e.id,
+      this.userPostData.email = e.email
+    });
+    return this.userPostData;
   }
 
 }

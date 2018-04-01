@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { LocalPersistenceProvider } from '../../providers/local-persistence/local-persistence';
 
 @Component({
   selector: 'page-home',
@@ -14,21 +15,9 @@ export class HomePage {
 
   lstMembro : Array<any>;
 
-  userPostData = { "nome": "", "numeroCelular": "" };
+  constructor(public navCtrl: NavController, public authService: AuthServiceProvider, localPersistence: LocalPersistenceProvider) {
 
-
-  constructor(public navCtrl: NavController, public authService: AuthServiceProvider) {
-
-    this.lstMembro = JSON.parse(localStorage.getItem('membro'));
-
-   console.log( this.lstMembro);
-   this.lstMembro.forEach(m=>{
-    this.userDetails = m;
-    this.userPostData.nome = m.nome;
-    this.userPostData.numeroCelular = m.numeroCelular;
-   });
-
-    
+    this.userDetails = localPersistence.getLocalMembro();
 
   }
 
